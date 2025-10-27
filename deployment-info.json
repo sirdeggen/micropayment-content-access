@@ -1,0 +1,25 @@
+{
+  "schema": "bsv-app",
+  "schemaVersion": "1.0",
+  "frontend": {
+    "language": "react",
+    "sourceDirectory": "./frontend"
+  },
+  "lookupServices": {
+    "ls_content_access": {
+      "serviceFactory": "backend/src/ContentLookupServiceFactory.ts",
+      "hydrateWith": "mongo"
+    }
+  },
+  "configs": [
+    {
+      "name": "Local LARS",
+      "provider": "LARS",
+      "network": "testnet",
+      "run": [
+        "frontend",
+        "backend"
+      ]
+    }
+  ]
+}
