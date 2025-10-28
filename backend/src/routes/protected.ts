@@ -3,11 +3,12 @@ import { createAuthMiddleware } from '@bsv/auth-express-middleware';
 import { WalletClient } from '@bsv/sdk';
 import Article from '../models/Article';
 import Purchase from '../models/Purchase';
+import { makeWallet } from '../wallet';
 
 const router = express.Router();
 
 // Create a wallet client instance for the auth middleware
-const wallet = new WalletClient();
+const wallet = makeWallet(process.env.PRIVATE_KEY!);
 
 // BRC-104 Authentication Middleware
 // This verifies the user's identity using their wallet signature (BRC-77/78)
